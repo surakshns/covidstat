@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 const Navbar=()=>{
     return(
@@ -14,9 +15,9 @@ const Navbar=()=>{
         </div>
         <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
             <ul className='navlist'>
-                <li><Link to='/covid'>Stats</Link></li>
-                <li><Link to='/News'>News</Link></li>
-                <li><Link to='/contacts'>Contacts</Link></li>
+                <li><NavLink to="/" activeClassName="active">Stats</NavLink></li>
+                <li><NavLink to='/News' activeClassName="active">News</NavLink></li>
+                <li><NavLink to='/contacts' activeClassName="active">Contacts</NavLink></li>
             </ul>
         </div>
     </div>

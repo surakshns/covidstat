@@ -24,6 +24,9 @@ body{
     --bs-table-hover-color: #f8f9fa;
     --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
 }
+.table-responsive{
+  padding: 10%;
+}
 h3{
   margin-bottom: 0px;
 }
@@ -35,7 +38,7 @@ h3{
   padding: 2%;
   display: flex;
   flex-direction: row;
-  justify-content:space-evenly;
+  justify-content:space-around;
   align-items: center;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.353);
 }
@@ -67,7 +70,7 @@ h3{
   color: whitesmoke !important;
 }
 .statstable{
-  padding: 5%;
+  padding: 4%;
 }
 .totaldetails{
   display: flex;
@@ -114,4 +117,12 @@ h3{
 }
 .death:hover{
   background-color: #cd0a3449;
+}
+.newspage{
+  padding: 4%;
+}
+@media only screen and (max-width: 600px) {
+  .table-responsive{
+  padding: 1%;
+}
 }

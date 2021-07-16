@@ -27,7 +27,7 @@ const Stats=()=>{
 
     return(
         <div className='statstable'>
-            <div className='container-fluid mt-5 mb-5'>
+            <div className='container-fluid mb-5'>
                 <h1 className='heading'>Stats</h1>
             </div>
             <div className='totaldetails'>
