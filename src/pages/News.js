@@ -21,7 +21,7 @@ const News=()=>{
             <h1 className='heading'>Covid News</h1>
             <div style={{padding:'5%'}}>
                 <div style={{fontSize:"40px"}}>All India's top healthcare news</div>
-            {
+                {
                 data.map((item)=>{
                     return(
                         <Newscard image={item.urlToImage} title={item.title} description={item.description} />

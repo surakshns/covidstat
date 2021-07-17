@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Tangerine&display=swap');
 *{
   text-decoration: none !important;
   font-family: 'Barlow Semi Condensed', sans-serif;
   margin: 0;
   padding: 0%;
-  
+  transition: all .2s;
 }
 body{
   background-color: #161625;
@@ -26,21 +26,21 @@ body{
 }
 .table-responsive{
   padding: 10%;
+  padding-top: 0px;
 }
 h3{
   margin-bottom: 0px;
 }
 .heading{
-  font-family: 'Monoton', cursive;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 .navbar{
-  background-color: #1E1E30;
-  padding: 2%;
   display: flex;
-  flex-direction: row;
   justify-content:space-around;
-  align-items: center;
+  background-color: #1E1E30;
+  padding: .5%;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.353);
+  height: max-content;
 }
 .navbar h1{
   vertical-align: middle;
@@ -51,7 +51,7 @@ h3{
 .navlist{
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
+  justify-content:space-around;
   text-decoration: none;
   list-style: none;
   padding: 0%;
@@ -64,7 +64,11 @@ h3{
 }
 .navlist li:hover{
   background-color: #676f7850;
-
+}
+.activenav{
+  border-radius: 10px;
+  padding: 20%;
+  background-color: #676f7850;
 }
 .navlist li a{
   color: whitesmoke !important;
@@ -72,39 +76,44 @@ h3{
 .statstable{
   padding: 4%;
 }
+input{  
+  color: white;
+  background-color:#1E1E30;
+  border: 0px;
+  padding: 2%;
+  width: 80%;
+  border-Radius:10px;
+}
+input:active{
+  border: 0px;
+}
 .totaldetails{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   margin-bottom: 5%;
 }
-.confirmed{
-  color: #676F78;
-  background-color: #676f780a;
+.box{
   border-radius: 20px;
   padding: 4%;
   transition: all .8s ease-in-out;
+}
+.confirmed{
+  color: #676F78;
+  background-color: #676f780a;
+  
 }
 .active{
   color: #007BFF;
   background-color: #007bff0e;
-  border-radius: 20px;
-  padding: 4%;
-  transition: all .8s ease-in-out;
 }
 .recovered{ 
   color: #28A745;
   background-color: #28a7461c;
-  border-radius: 20px;
-  padding: 4%;
-  transition: all .8s ease-in-out;
 }
 .death{
   color: #cd0a35;
   background-color: #cd0a3416;
-  border-radius: 20px;
-  padding: 4%;
-  transition: all .8s ease-in-out;
 }
 .confirmed:hover{
   background-color: #676f7840;
@@ -121,8 +130,28 @@ h3{
 .newspage{
   padding: 4%;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .table-responsive{
   padding: 1%;
+}
+.totaldetails{
+  flex-direction: column;
+}
+.navlist li{
+  margin: 0%;
+  padding: 2%;
+}
+.navbar{
+  display: block;
+}
+input{
+  color: white;
+  background-color:#1E1E30;
+  border: 0px;
+  padding: 5%;
+  width: 100%;
+  margin-Top:10%;
+  margin-Bottom:10%;
+  border-Radius:10px;
 }
 }
