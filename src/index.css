@@ -15,6 +15,9 @@ body{
 .table{
   color: #6C757D ;
 }
+a{
+  color: #6C757D !important;
+}
 .table{
   --bs-table-accent-bg: transparent;
     --bs-table-striped-color: #212529;
@@ -101,7 +104,9 @@ input:active{
 .confirmed{
   color: #676F78;
   background-color: #676f780a;
-  
+}
+button{
+  width: 50px !important;
 }
 .active{
   color: #007BFF;
@@ -130,9 +135,21 @@ input:active{
 .newspage{
   padding: 4%;
 }
+.footer div{
+  display: flex;
+  justify-content: space-around;
+  flex-direction:row;
+  padding: 3%;
+}
+
 @media only screen and (max-width: 1000px) {
   .table-responsive{
   padding: 1%;
+}
+.footer div{
+  display: flex;
+  justify-content: space-around;
+  flex-direction:column;
 }
 .totaldetails{
   flex-direction: column;

@@ -2,7 +2,8 @@ import React,{useEffect, useState} from 'react'
 import axios from 'axios'
 import { } from 'bootstrap'
 import {Line} from 'react-chartjs-2'
-import { wait, waitFor } from '@testing-library/react'
+import Speech from 'react-speech';
+import {useSpeechSynthesis} from 'react-speech-kit'
 
 const Stats=()=>{
     const [data,setData]= useState([])
@@ -22,6 +23,7 @@ const Stats=()=>{
     const [totrecovered,settotRecovered]= useState([])
     const [search,setsearch]= useState(false)
 
+    const {speak} = useSpeechSynthesis();
 
     const getData= async() =>{
 
@@ -43,7 +45,7 @@ const Stats=()=>{
             totdat.push(timedata[i].date)
             totc.push(timedata[i].dailyconfirmed)
             totr.push(timedata[i].dailyrecovered)
-            totd.push(timedata[i].totaldeaths)
+            totd.push(timedata[i].dailydeceased)
             tota.push(timedata[i].dailydeceased)
         }
         settotConfirmed(totc)
@@ -67,13 +69,30 @@ const Stats=()=>{
         setfilter(e.target.value)
     }
 
+    
+    const confirmedpress=()=>{
+        setshowgraph('confirmed')
+        speak({text: `Total confirmed cases in india is of ${confirmed}`})
+    }
+    const activepress=()=>{
+        setshowgraph('Active')
+        speak({text: `Total active cases in india is of ${active}`})
+    }
+    const recoveredpress=()=>{
+        setshowgraph('recovered')
+        speak({text: `Total Recovered cases in india is of ${recovered}`})
+    }
+    const deathpress=()=>{
+        setshowgraph('Death')
+        speak({text: `Total deaths in india is of ${deaths}`})
+    }
+
     return(
         <div className='statstable'>
             <div className='container-fluid mb-5'>
-                {/* <h1 className='heading'>Stats</h1> */}
             </div>
             <div className='totaldetails'>
-                <div className='confirmed box' onClick={()=>setshowgraph('confirmed')}>
+                <div className='confirmed box' onClick={()=>confirmedpress()}>
                     <h5>Confirmed</h5>
                     <h3>{confirmed}</h3>
                     { showgraph=='confirmed' ?
@@ -102,7 +121,7 @@ const Stats=()=>{
                     null
                 }
                 </div>
-                <div className='active box' onClick={()=>setshowgraph('Active')}>
+                <div className='active box' onClick={()=>activepress()}>
                     <h5> Active </h5>
                     <h3>{active}</h3>
                     { showgraph=='Active' ?
@@ -130,7 +149,7 @@ const Stats=()=>{
                     null
                 }
                 </div>
-                <div className='recovered box' onClick={()=>setshowgraph('recovered')}>
+                <div className='recovered box' onClick={()=>recoveredpress()}>
                     <h5>Recovered</h5>
                     <h3>{recovered}</h3>
                     { showgraph=='recovered' ?
@@ -158,7 +177,7 @@ const Stats=()=>{
                     null
                 }
                 </div>
-                <div className='death box' onClick={()=>setshowgraph('Death')}>
+                <div className='death box' onClick={()=>deathpress()}>
                     <h5>Death</h5>
                     <h3>{deaths}</h3>
                     { showgraph=='Death' ?
@@ -167,7 +186,7 @@ const Stats=()=>{
                             labels: totdate,
                             datasets: [
                                 {
-                                label: '# of Votes',
+                                label: 'deaths',
                                 data: totdeaths,
                                 fill: false,
                                 backgroundColor: 'rgb(255, 99, 132)',
@@ -178,6 +197,7 @@ const Stats=()=>{
                         height={300}
                         width={500}
                         options={{
+                            pointStyle: 'line',
                             maintainAspectRatio:true
                         }}
                     />
