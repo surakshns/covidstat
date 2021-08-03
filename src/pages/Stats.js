@@ -22,6 +22,7 @@ const Stats=()=>{
     const [totdeaths,settotDeaths]= useState([])
     const [totrecovered,settotRecovered]= useState([])
     const [search,setsearch]= useState(false)
+    const [refresh,setrefresh]= useState(false)
 
     const {speak} = useSpeechSynthesis();
 
@@ -58,7 +59,8 @@ const Stats=()=>{
     useEffect(()=>{
         getData()
         setfilerdata(data)
-    },[]);
+        onlooad()
+    },[])
 
     useEffect(()=>{
         setfilerdata(data.filter((item) => (item.state.toLowerCase().includes(filter.toLowerCase()) || filter === '')).map(({state,statecode,confirmed,recovered,active,deaths,lastupdatedtime}) => ({state,confirmed,recovered,active,deaths,statecode,lastupdatedtime})))
@@ -68,6 +70,11 @@ const Stats=()=>{
         setsearch(true)
         setfilter(e.target.value)
     }
+    const onlooad=()=>{
+        console.log('h')
+        speak({text: `welcome to covidstat`})
+    }
+    
 
     
     const confirmedpress=()=>{
@@ -88,7 +95,7 @@ const Stats=()=>{
     }
 
     return(
-        <div className='statstable'>
+        <div  className='statstable'>
             <div className='container-fluid mb-5'>
             </div>
             <div className='totaldetails'>
@@ -112,6 +119,7 @@ const Stats=()=>{
                         height={300}
                         width={500}
                         options={{
+                            
                             pointStyle: 'line',
                             pointBorderWidth: .1,
                             maintainAspectRatio:true,

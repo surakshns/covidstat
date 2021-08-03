@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Navbar=()=>{
     const [active,setActive]= useState('')
     return(
-    <div className="navbar sticky-top">
+    <div className="navbar">
         <div> 
             <h1>CovidStat</h1>
         </div>

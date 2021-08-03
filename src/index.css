@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tangerine&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 *{
   text-decoration: none !important;
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
   margin: 0;
   padding: 0%;
   transition: all .2s;

@@ -10,7 +10,7 @@ const News=()=>{
         const res = await axios.get('https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=4d258bd4b31f40c59180ce5b754b72e7')
         console.log(newsres);
         const news= res.data.articles
-        setData(newsres)
+        setData(news)
     }
 
     useEffect(()=>{
